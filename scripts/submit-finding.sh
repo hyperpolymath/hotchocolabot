@@ -91,7 +91,9 @@ ln -sf "$(basename "$TARGET_FILE")" "shared-context/findings/${REPO_SLUG}/latest
 FINDING_COUNT=$(jq '.findings | length' "$TARGET_FILE" 2>/dev/null || echo 0)
 
 # Commit and push
-git add "$TARGET_FILE" "shared-context/findings/${REPO_SLUG}/latest.json"
+# -f: shared-context/findings/ is gitignored for local dev hygiene;
+# force-add is required for automated submission from CI.
+git add -f "$TARGET_FILE" "shared-context/findings/${REPO_SLUG}/latest.json"
 git config user.name "Hypatia Finding Submitter"
 git config user.email "hypatia@reposystem.dev"
 
