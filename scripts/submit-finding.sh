@@ -105,14 +105,26 @@ Scanner: hypatia-v2
 
 Automated submission from GitHub Actions."
 
-git push origin "$FINDINGS_BRANCH"
+# Push is best-effort: when callers only have the default GITHUB_TOKEN it
+# lacks cross-repo write to gitbot-fleet, so the push exits 128. Treat this
+# as a soft failure — emit a workflow warning and continue. Provide a
+# FLEET_PUSH_TOKEN secret with `contents:write` on gitbot-fleet to enable
+# real delivery.
+if git push origin "$FINDINGS_BRANCH" 2>push-stderr.log; then
+    echo "✅ Successfully submitted $FINDING_COUNT findings"
+    echo "📍 Location: $TARGET_FILE"
+    echo "🌐 View: https://github.com/${FLEET_REPO}/blob/${FINDINGS_BRANCH}/${TARGET_FILE}"
+    PUSH_OK=1
+else
+    echo "::warning::git push to ${FLEET_REPO} failed — findings not persisted. Set FLEET_PUSH_TOKEN with contents:write on ${FLEET_REPO} to enable delivery."
+    sed -e 's/^/    /' push-stderr.log || true
+    PUSH_OK=0
+fi
 
-echo "✅ Successfully submitted $FINDING_COUNT findings"
-echo "📍 Location: $TARGET_FILE"
-echo "🌐 View: https://github.com/${FLEET_REPO}/blob/${FINDINGS_BRANCH}/${TARGET_FILE}"
-
-# Trigger repository_dispatch for fleet intake when token is available.
-if [ -n "$DISPATCH_TOKEN" ]; then
+# Trigger repository_dispatch for fleet intake when token is available
+# and the push actually landed (otherwise the dispatch references a commit
+# that doesn't exist on the fleet remote).
+if [ -n "$DISPATCH_TOKEN" ] && [ "${PUSH_OK:-0}" = "1" ]; then
     CRITICAL_COUNT=$(jq '[.findings[]? | select((.severity // "") | ascii_downcase == "critical")] | length' "$TARGET_FILE")
     HIGH_COUNT=$(jq '[.findings[]? | select((.severity // "") | ascii_downcase == "high")] | length' "$TARGET_FILE")
     SECRET_COUNT=$(jq '[.findings[]? | select((((.type // "") + " " + (.rule_id // "") + " " + (.message // "")) | ascii_downcase | test("secret|token|private[_-]?key|credential")))] | length' "$TARGET_FILE")
@@ -157,7 +169,7 @@ if [ -n "$DISPATCH_TOKEN" ]; then
         -d "$dispatch_payload" >/dev/null; then
         echo "✅ Triggered repository_dispatch (${EVENT_TYPE}) for ${FLEET_REPO}"
     else
-        echo "⚠️  repository_dispatch failed (push already completed)"
+        echo "::warning::repository_dispatch failed (token lacks access or push didn't land)"
     fi
 fi
 
