@@ -1,12 +1,12 @@
-# HotChocolaBot Student Activity Sheets
+== HotChocolaBot Student Activity Sheets
 
-**Collection of printable worksheets for workshop activities**
+*Collection of printable worksheets for workshop activities*
 
----
+'''''
 
-## Activity Sheet 1: Mystery Box Predictions
+=== Activity Sheet 1: Mystery Box Predictions
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║           HOTCHOCOLABOT MYSTERY BOX CHALLENGE                ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -104,13 +104,13 @@ What did you get RIGHT?
 _______________________________________________________________
 
 _______________________________________________________________
-```
+....
 
----
+'''''
 
-## Activity Sheet 2: Component Detective
+=== Activity Sheet 2: Component Detective
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║              COMPONENT DETECTIVE CHALLENGE                   ║
 ║            Find all the parts of HotChocolaBot!              ║
@@ -262,13 +262,13 @@ _______________________________________________________________
 🎉 DETECTIVE WORK COMPLETE!
 
 You found ____/7 main components. Great work!
-```
+....
 
----
+'''''
 
-## Activity Sheet 3: System Architecture Diagram
+=== Activity Sheet 3: System Architecture Diagram
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║         SYSTEM ARCHITECTURE MAPPING CHALLENGE                ║
 ║          How do all the parts work together?                 ║
@@ -345,13 +345,13 @@ Emergency Stop → _____________ → Everything ______________
   └─────────────────────────────────────────────────────┘
 
   Fill in the question marks!
-```
+....
 
----
+'''''
 
-## Activity Sheet 4: Code Logic Exploration
+=== Activity Sheet 4: Code Logic Exploration
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║              CODING LOGIC CHALLENGE                          ║
 ║       How does software control the hardware?                ║
@@ -480,13 +480,13 @@ Create a "CUSTOM" recipe using the code template:
 Name your recipe: ______________________________________________
 
 Describe the taste: ____________________________________________
-```
+....
 
----
+'''''
 
-## Activity Sheet 5: Safety Systems Investigation
+=== Activity Sheet 5: Safety Systems Investigation
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║             SAFETY SYSTEMS DETECTIVE                         ║
 ║          Why is HotChocolaBot "over-engineered"?             ║
@@ -594,13 +594,13 @@ Draw a diagram of your safety feature:
 │                                                              │
 │                                                              │
 └──────────────────────────────────────────────────────────────┘
-```
+....
 
----
+'''''
 
-## Activity Sheet 6: Engineering Design Decisions
+=== Activity Sheet 6: Engineering Design Decisions
 
-```
+....
 ╔══════════════════════════════════════════════════════════════╗
 ║          ENGINEERING TRADE-OFFS INVESTIGATION                ║
 ║         Every design choice has pros and cons!               ║
@@ -700,35 +700,35 @@ Sketch your HotChocolaBot 2.0:
 └──────────────────────────────────────────────────────────────┘
 
 Name of your design: ___________________________________________
-```
+....
 
----
+'''''
 
-## Printing Instructions
+=== Printing Instructions
 
-**For Workshop Leaders:**
+*For Workshop Leaders:*
 
-1. **Print in advance** (1 per student + 10% extras)
-2. **Recommended paper**: Standard A4, 80gsm
-3. **Color vs. B&W**: Works in either, color more engaging
-4. **Binding**: Staple corner or use folder/binder clip
-5. **Laminating** (optional): Makes reusable with dry-erase markers
+[arabic]
+. *Print in advance* (1 per student + 10% extras)
+. *Recommended paper*: Standard A4, 80gsm
+. *Color vs. B&W*: Works in either, color more engaging
+. *Binding*: Staple corner or use folder/binder clip
+. *Laminating* (optional): Makes reusable with dry-erase markers
 
-**Cost estimate**: ~£0.50-1.00 per student packet (15-20 pages)
+*Cost estimate*: ~£0.50-1.00 per student packet (15-20 pages)
 
----
+'''''
 
-## Digital Alternative
+=== Digital Alternative
 
-**Google Forms / Microsoft Forms versions:**
-- Convert to interactive online forms
-- Embed images/diagrams
-- Auto-collect responses for assessment
-- Reduces printing costs
-- Accessible on tablets during workshop
+*Google Forms / Microsoft Forms versions:* - Convert to interactive
+online forms - Embed images/diagrams - Auto-collect responses for
+assessment - Reduces printing costs - Accessible on tablets during
+workshop
 
-**Hybrid approach**: Provide both paper (for diagrams) and digital (for surveys)
+*Hybrid approach*: Provide both paper (for diagrams) and digital (for
+surveys)
 
----
+'''''
 
-**License**: CC BY-SA 4.0 (Free to use and adapt with attribution)
+*License*: CC BY-SA 4.0 (Free to use and adapt with attribution)

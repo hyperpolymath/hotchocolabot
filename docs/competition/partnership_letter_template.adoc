@@ -1,12 +1,13 @@
-# Partnership Letter Template
+== Partnership Letter Template
 
-**Purpose**: Request letter of support from workshop venue or partner institution
+*Purpose*: Request letter of support from workshop venue or partner
+institution
 
----
+'''''
 
-## Template 1: For Schools/Colleges
+=== Template 1: For Schools/Colleges
 
-```
+....
 [Your Letterhead / Logo]
 
 [Date]
@@ -128,13 +129,13 @@ Sincerely,
 [School Logo/Seal]
 
 ---
-```
+....
 
----
+'''''
 
-## Template 2: For Makerspaces/Community Centers
+=== Template 2: For Makerspaces/Community Centers
 
-```
+....
 [Your Letterhead]
 
 [Date]
@@ -231,13 +232,13 @@ Sincerely,
 [Contact Information]
 
 ---
-```
+....
 
----
+'''''
 
-## Template 3: Follow-Up Email (If Needed)
+=== Template 3: Follow-Up Email (If Needed)
 
-```
+....
 Subject: Gentle Reminder: Partnership Letter for HotChocolaBot Competition
 
 Dear [Name],
@@ -267,59 +268,59 @@ Best,
 [Your Name]
 [Phone]
 [Email]
-```
+....
 
----
+'''''
 
-## Tips for Requesting Letters
+=== Tips for Requesting Letters
 
-### DO:
-- Ask early (6-8 weeks before competition deadline)
-- Provide a clear template
-- Explain why it matters
-- Make it easy (offer to draft, they edit)
-- Follow up politely
-- Express genuine gratitude
+==== DO:
 
-### DON'T:
-- Wait until last minute
-- Assume they remember details (provide data)
-- Make demands
-- Write the whole letter and ask them to sign (unethical)
-- Harass if they decline
+* Ask early (6-8 weeks before competition deadline)
+* Provide a clear template
+* Explain why it matters
+* Make it easy (offer to draft, they edit)
+* Follow up politely
+* Express genuine gratitude
 
-### BEST PRACTICES:
+==== DON’T:
 
-1. **Prioritize quality over quantity**: 2 strong, specific letters > 5 generic ones
+* Wait until last minute
+* Assume they remember details (provide data)
+* Make demands
+* Write the whole letter and ask them to sign (unethical)
+* Harass if they decline
 
-2. **Choose diverse partners**:
-   - At least one formal institution (school/college)
-   - At least one community organization (makerspace/youth club)
-   - Bonus: Industry partner or university
+==== BEST PRACTICES:
 
-3. **Provide supporting materials**:
-   - Workshop photos (with consent)
-   - Assessment data summary
-   - Student quotes/testimonials
-   - Quick facts sheet
+[arabic]
+. *Prioritize quality over quantity*: 2 strong, specific letters > 5
+generic ones
+. *Choose diverse partners*:
+* At least one formal institution (school/college)
+* At least one community organization (makerspace/youth club)
+* Bonus: Industry partner or university
+. *Provide supporting materials*:
+* Workshop photos (with consent)
+* Assessment data summary
+* Student quotes/testimonials
+* Quick facts sheet
+. *Make it mutually beneficial*:
+* Offer to mention institution in competition materials
+* Share competition results
+* Propose future collaboration
+* Provide workshop impact report they can use
+. *Format matters*:
+* Official letterhead (PDF)
+* Wet signature preferred (digital acceptable)
+* Contact information visible
+* Dated within last 3 months
 
-4. **Make it mutually beneficial**:
-   - Offer to mention institution in competition materials
-   - Share competition results
-   - Propose future collaboration
-   - Provide workshop impact report they can use
+'''''
 
-5. **Format matters**:
-   - Official letterhead (PDF)
-   - Wet signature preferred (digital acceptable)
-   - Contact information visible
-   - Dated within last 3 months
+=== Sample "`Quick Facts`" Sheet to Include
 
----
-
-## Sample "Quick Facts" Sheet to Include
-
-```
+....
 HOTCHOCOLABOT WORKSHOP QUICK FACTS
 
 Workshops at [Institution Name]:
@@ -354,37 +355,43 @@ Deadline: April 1, 2026
 
 Contact: [Your Name], [Email], [Phone]
 Website: github.com/Hyperpolymath/hotchocolabot
-```
+....
 
----
+'''''
 
-## Legal/Ethical Considerations
+=== Legal/Ethical Considerations
 
-**Authenticity**: Letters must be genuine. Do not fabricate partnerships.
+*Authenticity*: Letters must be genuine. Do not fabricate partnerships.
 
-**Transparency**: If you drafted a template, partner should edit it to reflect their authentic voice.
+*Transparency*: If you drafted a template, partner should edit it to
+reflect their authentic voice.
 
-**Permissions**: Ensure partner is comfortable with their letter being shared with competition judges.
+*Permissions*: Ensure partner is comfortable with their letter being
+shared with competition judges.
 
-**Acknowledgment**: Publicly thank partners (in video credits, final report, etc.)
+*Acknowledgment*: Publicly thank partners (in video credits, final
+report, etc.)
 
----
+'''''
 
-## Letter Collection Checklist
+=== Letter Collection Checklist
 
-- [ ] Identify 3-5 potential partners
-- [ ] Draft customized request emails
-- [ ] Send requests 6+ weeks before deadline
-- [ ] Provide templates and supporting materials
-- [ ] Follow up after 1 week if no response
-- [ ] Confirm receipt of completed letters
-- [ ] Verify letterhead, signature, contact info
-- [ ] Save as PDF with filename: `[InstitutionName]_Support_Letter.pdf`
-- [ ] Send thank you note to each partner
-- [ ] Archive in `docs/competition/partnerships/` folder
+* [ ] Identify 3-5 potential partners
+* [ ] Draft customized request emails
+* [ ] Send requests 6+ weeks before deadline
+* [ ] Provide templates and supporting materials
+* [ ] Follow up after 1 week if no response
+* [ ] Confirm receipt of completed letters
+* [ ] Verify letterhead, signature, contact info
+* [ ] Save as PDF with filename:
+`+[InstitutionName]_Support_Letter.pdf+`
+* [ ] Send thank you note to each partner
+* [ ] Archive in `+docs/competition/partnerships/+` folder
 
----
+'''''
 
-**Remember**: The best letters are specific, authentic, and demonstrate real impact. Generic "this was good" letters don't add value.
+*Remember*: The best letters are specific, authentic, and demonstrate
+real impact. Generic "`this was good`" letters don’t add value.
 
-**Goal**: 2-3 strong letters that tell a story of meaningful educational partnership.
+*Goal*: 2-3 strong letters that tell a story of meaningful educational
+partnership.
