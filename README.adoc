@@ -18,6 +18,19 @@ Canonical home for HotChocolaBot is this repo: `https://github.com/hyperpolymath
 The old `gitbot-fleet` nested path is a mirror, not the source of truth.
 ====
 
+[NOTE]
+====
+Discovery tags for bots and humans: `epistemic-computing`, `epistemic-infrastructure`,
+`equivalence-aware-computing`, `hyperpolymath`, `typed-provenance`, `veridical-computing`,
+`open-source`, `robotics`, `education`, `teaching`, `reverse-engineering`, `stem-education`,
+`rust`, `raspberry-pi`, `embedded`, `mechatronics`, `state-machine`, `safety-critical`,
+`formal-verification`, `certified-null-operations`.
+
+The machine-readable source for these recommended GitHub topics is
+link:.github/repository-topics.json[`.github/repository-topics.json`].
+Rationale for each one: link:docs/REPO_METADATA.adoc[`docs/REPO_METADATA.adoc`].
+====
+
 == Overview
 
 HotChocolaBot is an over-engineered hot chocolate dispenser designed to teach reverse engineering, systems thinking, and problem-solving skills through heutagogic (self-directed) learning. Students deconstruct and analyze the system to understand complex engineering principles in an engaging, hands-on environment.
@@ -273,6 +286,21 @@ HotChocolaBot demonstrates concepts from ongoing research:
 - *UPM (Universal Project Manager)*: Case study for project management theory
 - *Formal Verification*: State machine approach bridges theory to practice
 
+=== Related Projects
+
+Where the ideas above are taken further, in this and neighbouring repositories:
+
+| Repository | Relationship |
+|-----------|--------------|
+| link:https://github.com/hyperpolymath/absolute-zero[absolute-zero] | CNO formalised across Coq, Lean 4 and Agda. This project is the taught, physical instantiation |
+| link:https://github.com/hyperpolymath/lustreiser[lustreiser] | Sibling safety-critical embedded work; shares the state-machine and formal-methods vocabulary |
+| link:https://github.com/hyperpolymath/robot-vacuum-cleaner[robot-vacuum-cleaner] | Sibling robotics build in the same Rust toolchain |
+| link:https://github.com/hyperpolymath/JuliaKids.jl[JuliaKids.jl] | Sibling CS-education-for-children package |
+| link:https://github.com/hyperpolymath/pseudoscript[pseudoscript] | Sibling pedagogy project — pseudocode as a first language |
+| link:https://github.com/hyperpolymath/methodologies[methodologies] | Where the captured design decisions behind this build live |
+| link:https://github.com/hyperpolymath/gitbot-fleet[gitbot-fleet] | Repository quality enforcement fleet; also the historical mirror path for this project |
+| link:https://github.com/hyperpolymath/palimpsest-license[palimpsest-license] | The licence referenced by this repository |
+
 == Competition Submission
 
 === Target: Robotics for Good Youth Challenge 2025-2026
@@ -335,6 +363,24 @@ cargo clippy
 
 image:https://img.shields.io/badge/License-MPL--2.0-blue.svg[License: MPL-2.0,link="https://github.com/hyperpolymath/palimpsest-license"]
 cargo bench
+```
+
+== Repository Metadata
+
+This repository's GitHub description and topics — the text GitHub indexes that
+lives outside the tree — are declared in `.github/repository-topics.json` and
+explained in link:docs/REPO_METADATA.adoc[docs/REPO_METADATA.adoc]. Change the
+JSON, not GitHub's settings, so the change is reviewable in a diff:
+
+```bash
+= Show the declared description and topics
+just repo-metadata
+
+= Check GitHub against the declaration (read-only)
+just repo-metadata-audit
+
+= Push them to GitHub (needs admin on the repository)
+just repo-metadata-apply
 ```
 
 == License

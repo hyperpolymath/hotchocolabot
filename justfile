@@ -337,4 +337,28 @@ help:
     @echo "  just audit            - Security audit"
     @echo "  just rsr-check        - Check RSR compliance"
     @echo ""
+    @echo "Repository metadata (GitHub description + topics):"
+    @echo "  just repo-metadata       - Show the declared description/topics"
+    @echo "  just repo-metadata-audit - Check GitHub against the declaration"
+    @echo "  just repo-metadata-apply - Push them to GitHub (needs admin)"
+    @echo ""
     @echo "For full list: just --list"
+
+# === Repository Metadata Recipes ===
+# The GitHub "About" box (description + topics) lives in repository settings, not
+# in the tree, so it cannot be reviewed in a diff and cannot be enforced by CI.
+# These recipes make .github/repository-topics.json the reviewable source of truth.
+# Requires: jq, gh. Rationale for every value: docs/REPO_METADATA.adoc
+
+# Show the canonical description and topics declared for this repository
+repo-metadata:
+    @scripts/repo-metadata.sh show
+
+# Compare GitHub's live settings against the declared metadata (read-only; non-zero on drift)
+# Pass REPO= to audit a sibling repository in the estate instead
+repo-metadata-audit REPO="hyperpolymath/hotchocolabot":
+    @scripts/repo-metadata.sh audit "{{REPO}}"
+
+# Push the declared description and topics to GitHub (needs admin on the repository)
+repo-metadata-apply REPO="hyperpolymath/hotchocolabot":
+    @scripts/repo-metadata.sh apply "{{REPO}}"
