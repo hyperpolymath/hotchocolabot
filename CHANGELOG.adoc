@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 == [Unreleased]
 
+=== Added
+- **Repository metadata** (closes #12): the GitHub description and topic set are
+  now declared in `.github/repository-topics.json` and explained in
+  `docs/REPO_METADATA.adoc`, with `scripts/repo-metadata.sh` and three `just`
+  recipes to show, audit and apply them. Fills in the empty repository
+  description, adds the 14 domain topics the repository was missing, and adds the
+  `open-source` convention tag carried by 338 of the estate's ~343 repositories.
+- **Related projects table** in `README.adoc`, linking this repository to the
+  sibling work it shares vocabulary and audiences with (`absolute-zero`,
+  `lustreiser`, `robot-vacuum-cleaner`, `JuliaKids.jl`, `pseudoscript`,
+  `methodologies`, `gitbot-fleet`).
+
 === Planned
 - Hardware assembly and testing
 - Workshop pilot delivery (3 sessions, 15+ students)

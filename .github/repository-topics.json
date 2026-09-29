@@ -1,0 +1,130 @@
+{
+  "description": "Discovery metadata for GitHub repository topics and bot-readable repository classification.",
+
+  "repository": "hyperpolymath/hotchocolabot",
+  "rationale": "docs/REPO_METADATA.adoc",
+  "issue": "https://github.com/hyperpolymath/hotchocolabot/issues/12",
+
+  "description_text": "Educational robotics platform: an intentionally over-engineered hot chocolate dispenser, in Rust for Raspberry Pi, that teaches reverse engineering, systems thinking and safety-critical design to students aged 12–18 — with a mock-hardware HAL, a Certified Null Operations (CNO) safety state machine, and a full workshop curriculum.",
+  "short_description": "Educational robotics: a deliberately over-engineered hot chocolate dispenser for teaching reverse engineering and systems thinking.",
+
+  "minimum_topic_count": 7,
+  "recommended_topic_count": 20,
+  "description_max_chars": 350,
+
+  "topics": [
+    "epistemic-computing",
+    "epistemic-infrastructure",
+    "equivalence-aware-computing",
+    "hyperpolymath",
+    "typed-provenance",
+    "veridical-computing",
+    "open-source",
+    "robotics",
+    "education",
+    "teaching",
+    "reverse-engineering",
+    "stem-education",
+    "rust",
+    "raspberry-pi",
+    "embedded",
+    "mechatronics",
+    "state-machine",
+    "safety-critical",
+    "formal-verification",
+    "certified-null-operations"
+  ],
+
+  "topic_groups": {
+    "estate_spine": [
+      "epistemic-computing",
+      "epistemic-infrastructure",
+      "equivalence-aware-computing",
+      "hyperpolymath",
+      "typed-provenance",
+      "veridical-computing"
+    ],
+    "estate_convention": ["open-source"],
+    "project": [
+      "robotics",
+      "education",
+      "teaching",
+      "reverse-engineering",
+      "stem-education",
+      "mechatronics"
+    ],
+    "platform": ["rust", "raspberry-pi", "embedded", "state-machine"],
+    "method": [
+      "safety-critical",
+      "formal-verification",
+      "certified-null-operations"
+    ]
+  },
+
+  "selection_rationale": {
+    "bot_discovery": [
+      "robotics",
+      "education",
+      "reverse-engineering",
+      "mechatronics",
+      "stem-education",
+      "safety-critical",
+      "state-machine",
+      "certified-null-operations",
+      "formal-verification",
+      "embedded"
+    ],
+    "human_discovery": [
+      "robotics",
+      "education",
+      "teaching",
+      "reverse-engineering",
+      "stem-education",
+      "rust",
+      "raspberry-pi",
+      "embedded"
+    ],
+    "domain_accuracy": [
+      "mechatronics",
+      "state-machine",
+      "safety-critical",
+      "formal-verification",
+      "certified-null-operations"
+    ]
+  },
+
+  "related_repositories": [
+    {
+      "repo": "hyperpolymath/absolute-zero",
+      "relation": "CNO is formalised there; this repo is the taught, physical instantiation"
+    },
+    {
+      "repo": "hyperpolymath/robot-vacuum-cleaner",
+      "relation": "Sibling robotics build in the same Rust toolchain"
+    },
+    {
+      "repo": "hyperpolymath/lustreiser",
+      "relation": "Sibling safety-critical embedded work sharing the state-machine and formal-methods vocabulary"
+    },
+    {
+      "repo": "hyperpolymath/JuliaKids.jl",
+      "relation": "Sibling CS-education-for-children package"
+    },
+    {
+      "repo": "hyperpolymath/pseudoscript",
+      "relation": "Sibling pedagogy project (pseudocode as a first language)"
+    },
+    {
+      "repo": "hyperpolymath/gitbot-fleet",
+      "relation": "Repository quality enforcement fleet; also the historical mirror path for this project"
+    },
+    {
+      "repo": "hyperpolymath/methodologies",
+      "relation": "Where the captured design decisions behind this build live"
+    },
+    {
+      "repo": "hyperpolymath/palimpsest-license",
+      "relation": "Licence referenced by this repository"
+    }
+  ]
+}

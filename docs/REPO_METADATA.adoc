@@ -1,0 +1,286 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+= Repository Metadata: description and topics
+:toc:
+
+== Why this document exists
+
+GitHub's *About* section (description + topics) is the only text GitHub indexes
+that is not inside the repository. It is what a stranger sees in search results,
+in `github.com/hyperpolymath/hotchocolabot/topics` listings, and in the
+organization's own topic browse pages. Until now this repository had a full
+README and *no* description and *no* domain topics, which made it effectively
+invisible outside the estate while still being one of only a handful of its
+~343 repositories without the `open-source` convention tag.
+
+Issue https://github.com/hyperpolymath/hotchocolabot/issues/12 records the
+missing description. The description and topic set below close it.
+
+The canonical values live in `.github/repository-topics.json` — *this document
+explains them, the JSON is what tools read.* Do not edit the values in two
+places.
+
+=== Why that filename
+
+`.github/repository-topics.json` is not an invention here. `gitbot-fleet`
+already ships a file of that name described as "Discovery metadata for GitHub
+repository topics and bot-readable repository classification", and its README
+points at it as "the machine-readable source for these recommended GitHub
+topics". This file follows that schema — `description`, `short_description`,
+`minimum_topic_count`, `recommended_topic_count`, `topics`,
+`selection_rationale` — so anything in the estate that learns to read one reads
+all of them. The GitHub description itself is carried in `description_text`,
+because the estate schema already spends the `description` key on explaining the
+file.
+
+That schema is also the reason the README carries a `[NOTE]` block listing the
+twenty topics in prose, next to a link to the JSON: a human who lands in a clone
+should see the same discovery surface as a bot.
+
+== The description
+
+[source]
+----
+Educational robotics platform: an intentionally over-engineered hot chocolate
+dispenser, in Rust for Raspberry Pi, that teaches reverse engineering, systems
+thinking and safety-critical design to students aged 12–18 — with a
+mock-hardware HAL, a Certified Null Operations (CNO) safety state machine, and a
+full workshop curriculum.
+----
+
+331 characters (GitHub's limit is 350; the headroom is deliberate, because the
+value contains an en dash and an em dash and nobody should have to measure
+whether a platform counts those as one character or three).
+
+It is built from six claims, each of which is backed by something in the tree:
+
+. *Educational robotics platform* — the category, and the phrase already used in
+  `Cargo.toml` and the README tagline. Leads with the category so a topic or
+  keyword search lands on the right noun before any detail.
+. *Intentionally over-engineered* — the project's single most distinctive
+  property, and the reason it exists. "Intentionally" prevents a reader from
+  mistaking the complexity for neglect, which is the usual first impression of an
+  over-built repo.
+. *Hot chocolate dispenser … in Rust for Raspberry Pi* — what it physically is,
+  plus the two facts a developer filters on. Named technologies do more for
+  search recall than adjectives.
+. *Teaches reverse engineering, systems thinking and safety-critical design to
+  students aged 12–18* — the audience, the method and the age band. The age band
+  is a real search term for the teachers, and the three subjects are the
+  documented learning outcomes in `education/workshops/workshop_curriculum.adoc`.
+. *Mock-hardware HAL* — the feature that makes the project usable without buying
+  a Raspberry Pi. It is the reason a developer who cannot solder still bookmarks
+  it.
+. *CNO safety state machine* — the bridge to the rest of the estate.
+  `absolute-zero` and `maa-framework` already carry the term "Certified Null
+  Operations" in their descriptions and topics; repeating it here makes this
+  repo discoverable from those, and makes those discoverable from this.
+
+=== What the description deliberately does not say
+
+The estate's issue templates include a 🪞 *Affirmation / claim drift* form for "a
+public claim overstates what the code does". The description respects that:
+
+* It does **not** say "formally verified". `src/safety/mod.rs` builds a
+  complete `smlang` model of the safety states, but the shipped demo flow drives
+  safety through explicit checks rather than that model. The description claims a
+  "CNO safety state machine", which is what the code is.
+* It does **not** say "works" or "open hardware". Hardware assembly is still
+  unchecked in the README development status, and the project carries no
+  Open Source Hardware certification.
+
+If a future version earns the stronger claim, update the JSON and this section
+together.
+
+== The topics
+
+Twenty topics — GitHub's hard maximum, and the estate schema's
+`recommended_topic_count`. Every slot is spent deliberately, and each one is a
+real, defensible claim about the repository. The groups below are also encoded
+in the JSON under `topic_groups`, and `scripts/repo-metadata.sh` refuses to run
+if those groups and the flat `topics` list ever disagree.
+
+=== Estate spine (6) — non-negotiable, cross-repository navigation
+
+[cols="1,1,3"]
+|===
+| Topic | Estate repos | Why it stays
+
+| `epistemic-computing`   | 342 | Core taxonomy term.
+| `epistemic-infrastructure` | 342 | Core taxonomy term.
+| `equivalence-aware-computing` | 334 | Core taxonomy term.
+| `typed-provenance`      | 334 | Core taxonomy term.
+| `veridical-computing`   | 342 | Core taxonomy term.
+| `hyperpolymath`         | 343 | The org slug itself.
+|===
+
+These six appear on effectively every repository in the estate. They are the
+joins of the cross-repository graph: a reader who lands here from any of them
+can pivot to any other. Dropping one would make this repo a dead end in the
+estate's own browse pages — so they are kept even though none of them describes
+a hot chocolate machine.
+
+=== Estate convention (1) — the gap this PR closes
+
+`open-source` is on 338 of 343 estate repositories. This one was missing it,
+which meant it was invisible from `topic:open-source` — by far the largest
+single browse page the project belongs on.
+
+=== What the project is (6)
+
+[cols="1,3"]
+|===
+| Topic | Justification
+
+| `robotics` | The category in `Cargo.toml`'s own description; the thing a teacher types.
+| `education` | Already the estate's tag for its teaching repositories (14 uses).
+| `teaching` | Shares a topic page with the estate's other pedagogy work: `JuliaKids.jl`, `JuliaForChildren.jl`, `pseudoscript`.
+| `reverse-engineering` | The primary skill taught; the project's own hook to `somethings-fishy`, the estate's other reverse-engineering repository.
+| `stem-education` | How the project is actually sold and scheduled — a makerspace/STEM curriculum, not a hobby build.
+| `mechatronics` | Zero uses elsewhere in the estate, and uniquely this repo's: the project belongs to UAL Creative Communities' MechCC postdisciplinary mechatronics group. High signal, zero competition for the slot.
+|===
+
+=== What it is built with (4)
+
+`rust` (96 uses across the estate, the single most common language tag),
+`raspberry-pi` (the deployment target, and a topic `network-outpost` already
+uses), `embedded` (the `categories` field in `Cargo.toml` is literally
+`embedded`), and `state-machine` (the `smlang` safety model in
+`src/safety/mod.rs`).
+
+=== The method (3)
+
+`safety-critical` (the README's safety section, and the vocabulary
+`lustreiser` already uses), `formal-verification` (62 estate uses; the repo's
+`RSR_COMPLIANCE.adoc` and research-connections section), and
+`certified-null-operations` — the exact tag `absolute-zero` carries, which is
+what makes this repo reachable from the estate's formal-verification work and
+vice versa.
+
+=== Slots deliberately left empty
+
+GitHub allows twenty. The runners-up and why they lost:
+
+* `systems-thinking` — a headline learning outcome, and it *is* in the
+  description text, where GitHub's full-text index will find it. A topic slot was
+  worth more spent on `mechatronics` or `teaching`, which have no full-text
+  equivalent.
+* `open-hardware` — the BOM, wiring diagram and assembly guide are open, but the
+  project is not Open Source Hardware certified. Claiming it would be exactly the
+  kind of claim drift the estate polices.
+* `iot` — the temperature sensor and LCD are I2C peripherals, not a networked
+  thing. The project is deliberately offline-first.
+
+== Applying it
+
+The settings live in GitHub's repo configuration, not in the tree, so applying
+them needs admin on the repository. From the repository root:
+
+[source,bash]
+----
+# What the canonical metadata says
+just repo-metadata
+
+# What GitHub currently has, next to what it should have (read-only)
+just repo-metadata-audit
+just repo-metadata-audit REPO=hyperpolymath/absolute-zero
+
+# Apply it (needs admin on the repo)
+just repo-metadata-apply
+just repo-metadata-apply REPO=hyperpolymath/absolute-zero
+----
+
+`repo-metadata-apply` is a full sync: it `PATCH`es the whole `topics` array, so
+it cannot leave stale tags behind the way repeated `--add-topic` would, and it
+refuses to run if the declaration is malformed. To do it by hand, without
+`just`:
+
+[source,bash]
+----
+jq '{description: .description_text, topics: .topics}' \
+  .github/repository-topics.json \
+  | gh api -X PATCH repos/hyperpolymath/hotchocolabot --input -
+----
+
+The shorter `gh repo edit … --add-topic` form is *additive* — it is fine for
+adding a tag in a hurry, but it will not remove one that has been retired, and it
+will not notice that the description in GitHub no longer matches this file.
+Prefer the sync.
+
+=== Two estate rules that shaped this
+
+* *No Python.* The estate's governance gate runs `git ls-files '*.py'` and fails
+  the pull request, estate-wide, by design. So the checker here is bash + `jq`,
+  which are preinstalled on every runner and preinstalled here.
+* *`actions.lock` is keyed by workflow path.* A workflow the lock does not list
+  is rejected before any step runs — `startup_failure`, therefore no check run at
+  all. That is why there is no workflow in this change that runs
+  `repo-metadata-audit` on a schedule: a new workflow file would not run. A
+  `just` recipe plus a documented monthly manual sweep is the honest form of
+  this check until the lock is regenerated. If you do add a workflow, add its
+  path to `.github/workflows/actions.lock` in the same commit.
+
+== Using this for the rest of the estate
+
+The same three recipes work against any estate repository, which is what makes
+this a fix for the *estate's* findability rather than one repo's:
+
+* `repo-metadata-audit REPO=<name>` reports any repository whose live
+  description or topics have drifted from its own declared metadata. Run it
+  across `hyperpolymath/*` to find the rest of the gaps.
+* `repo-metadata-apply REPO=<name>` pushes a declared metadata file to a sibling
+  repository once that repository has one.
+
+The estate rules worth writing down, so siblings stay mutually findable:
+
+. *Keep the six spine topics.* They are the only thing that makes the ~343
+  repositories browseable as one body of work.
+. *Keep `open-source`.* 338 of 343 have it; a repository without it drops out of
+  the largest topic page the estate lives on.
+. *Spend the remaining thirteen slots on terms a newcomer would actually type*
+  (`robotics`, `raspberry-pi`, `reverse-engineering`), not on restating the
+  spine.
+. *Reuse a sibling's exact topic spelling* when you want to share a topic page —
+  `certified-null-operations` is shared with `absolute-zero`;
+  `safety-critical` with `lustreiser`; `teaching` with `JuliaKids.jl`. Two
+  spellings of one idea split the page in half.
+. *Put the estate term in the description too.* GitHub full-text search covers
+  the description, so a term that appears there is findable even when the topic
+  slot went to something else.
+. *Name the file `.github/repository-topics.json` and keep the estate schema.*
+  A sibling that invents `repo-metadata.json` or drops `selection_rationale` is
+  invisible to whatever eventually reads these files in bulk.
+
+== Related repositories
+
+Reciprocal links matter as much as the tags: each of these is a place a reader
+of this repo plausibly wants next, and each gets a link back.
+
+[cols="1,3"]
+|===
+| Repository | Why it is related
+
+| link:https://github.com/hyperpolymath/absolute-zero[absolute-zero] | CNO formalised across Coq/Lean/Agda. This repo is the taught, physical instantiation.
+| link:https://github.com/hyperpolymath/robot-vacuum-cleaner[robot-vacuum-cleaner] | Sibling robotics build in the same Rust toolchain.
+| link:https://github.com/hyperpolymath/lustreiser[lustreiser] | Sibling safety-critical embedded work; shares the state-machine and formal-methods vocabulary.
+| link:https://github.com/hyperpolymath/JuliaKids.jl[JuliaKids.jl] | Sibling CS-education-for-children package.
+| link:https://github.com/hyperpolymath/pseudoscript[pseudoscript] | Sibling pedagogy project — pseudocode as a first language.
+| link:https://github.com/hyperpolymath/gitbot-fleet[gitbot-fleet] | Repository quality enforcement fleet; also the historical mirror path for this project.
+| link:https://github.com/hyperpolymath/methodologies[methodologies] | Where the captured design decisions behind this build live.
+| link:https://github.com/hyperpolymath/palimpsest-license[palimpsest-license] | The licence referenced by this repository.
+|===
+
+The same list, machine-readable, is in `related_repositories` in
+`.github/repository-topics.json`.
+
+== Known follow-ups (not fixed here)
+
+* **Licence detection.** GitHub reports this repository's licence as
+  `NOASSERTION`, because the REUSE layout (`LICENSE` plus `LICENSES/`) carries
+  several licences at once. That suppresses the licence badge and puts the
+  repository outside `license:` search filters. The code is MPL-2.0 and the docs
+  are CC-BY-SA-4.0; picking which one GitHub should report is a legal decision
+  for the maintainer, not a metadata fix, so it is flagged rather than made.
+* **`docs/CITATIONS.adoc` references `../CITATION.cff` and `../codemeta.json`**,
+  which do not exist in this repository. `robot-vacuum-cleaner` ships both. Adding
+  them would make this project citable and would register it with citation
+  indexes — a real findability gain, and a separate change.
